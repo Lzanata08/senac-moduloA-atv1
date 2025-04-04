@@ -1,0 +1,6 @@
+/LeiloesTDSat/dist/
+*.class
+/LeiloesTDSat/build/classes/*.class
+LeiloesTDSat/build/classes/listagemVIEW.class
+*.class
+/LeiloesTDSat/build/classes

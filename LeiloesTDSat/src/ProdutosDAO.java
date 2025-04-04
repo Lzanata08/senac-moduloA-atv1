@@ -8,6 +8,7 @@
  * @author Adm
  */
 
+import com.mysql.cj.util.StringUtils;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,10 +64,21 @@ public class ProdutosDAO {
         }
         
     }
-    
-    public ArrayList<ProdutosDTO> listarProdutos(){
+    public ResultSet consultar(){
         
-        return listagem;
+        try {
+            
+            
+                prep = conn.prepareStatement("select * from produtos" );
+           
+             
+            ResultSet rs = prep.executeQuery();
+            return rs; //retornar 1
+        } catch (SQLException ex) {
+            System.out.println("Erro ao conectar: " + ex.getMessage());
+            
+        }
+        return null;
     }
     
     
