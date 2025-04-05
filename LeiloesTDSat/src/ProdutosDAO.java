@@ -101,7 +101,7 @@ public class ProdutosDAO {
            try {
             
             
-                prep = conn.prepareStatement("select * from produtos where status = Vendido" );
+                prep = conn.prepareStatement("SELECT * FROM produtos WHERE status = 'Vendido'" );
            
              
             ResultSet rs = prep.executeQuery();
