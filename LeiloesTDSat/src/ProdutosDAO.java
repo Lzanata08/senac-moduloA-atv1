@@ -80,6 +80,38 @@ public class ProdutosDAO {
         }
         return null;
     }
+
+    int venderProduto(int id) {
+         int status;
+        try {
+            
+            prep = conn.prepareStatement("UPDATE produtos SET status = ? where id = ?");
+            prep.setString(1,"Vendido");
+                   
+            prep.setLong(2, id);   
+            status = prep.executeUpdate();
+            return status;
+        } catch (SQLException ex) {
+            System.out.println("Erro ao conectar: " + ex.getMessage());
+            return ex.getErrorCode();
+        }
+    }
+
+    ResultSet consultarVendidos() {
+           try {
+            
+            
+                prep = conn.prepareStatement("SELECT * FROM produtos WHERE status = 'Vendido'" );
+           
+             
+            ResultSet rs = prep.executeQuery();
+            return rs; //retornar 1
+        } catch (SQLException ex) {
+            System.out.println("Erro ao conectar: " + ex.getMessage());
+            
+        }
+        return null;
+    }
     
     
     
